@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.LoginController"
+            prefWidth="400" prefHeight="320">
+
+    <children>
+        <VBox spacing="10" alignment="CENTER"
+              AnchorPane.topAnchor="20"
+              AnchorPane.leftAnchor="20"
+              AnchorPane.rightAnchor="20">
+
+            <Label text="Login Portal"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold;" />
+
+            <TextField fx:id="usernameField" promptText="Enter Username" />
+            <PasswordField fx:id="passwordField" promptText="Enter Password" />
+
+            <!-- ComboBox for role selection -->
+            <ComboBox fx:id="roleBox" promptText="Select Role" />
+
+            <!-- Buttons -->
+            <HBox spacing="10" alignment="CENTER">
+                <Button text="Login" onAction="#handleLogin"
+                        style="-fx-background-color: #FFD700; -fx-text-fill: black; -fx-font-weight: bold;" />
+                <Button text="Register" onAction="#goToRegister"
+                        style="-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-font-weight: bold;" />
+            </HBox>
+
+            <!-- 🔹 This label will show messages from backend -->
+            <Label fx:id="messageLabel" textFill="red" />
+
+            <!-- 🔹 (New) Progress indicator for loading -->
+            <ProgressIndicator fx:id="loadingSpinner" visible="false"/>
+        </VBox>
+    </children>
+</AnchorPane>

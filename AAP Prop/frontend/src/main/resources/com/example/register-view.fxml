@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.RegisterController"
+            prefWidth="800" prefHeight="600"
+            stylesheets="@neo-brutal.css"
+            styleClass="root">
+
+    <!-- Center brutalist register panel -->
+    <center>
+        <VBox alignment="CENTER" spacing="20" styleClass="panel">
+
+            <!-- Title -->
+            <Label text="📝 Create Account" styleClass="heading"/>
+
+            <!-- Username -->
+            <TextField fx:id="usernameField"
+                       promptText="Enter Username"
+                       styleClass="input" prefWidth="300"/>
+
+            <!-- Password -->
+            <PasswordField fx:id="passwordField"
+                           promptText="Enter Password"
+                           styleClass="input" prefWidth="300"/>
+
+            <!-- Confirm Password -->
+            <PasswordField fx:id="confirmPasswordField"
+                           promptText="Confirm Password"
+                           styleClass="input" prefWidth="300"/>
+
+            <!-- Role selection -->
+            <ComboBox fx:id="roleBox"
+                      promptText="Select Role"
+                      styleClass="input" prefWidth="300"/>
+
+            <!-- Register button -->
+            <Button text="✅ Register"
+                    onAction="#handleRegister"
+                    styleClass="button"/>
+
+            <!-- Link back to login -->
+            <Hyperlink text="🔑 Already have an account? Login"
+                       onAction="#goBackToLogin"/>
+
+            <!-- Message label -->
+            <Label fx:id="messageLabel" textFill="red"/>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,5 @@
+com\example\citizen_backend\model\User.class
+com\example\citizen_backend\model\Complaint.class
+com\example\citizen_backend\repository\UserRepository.class
+com\example\citizen_backend\CitizenBackendApplication.class
+com\example\citizen_backend\controller\AuthController.class

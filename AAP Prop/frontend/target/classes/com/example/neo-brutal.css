@@ -1,0 +1,44 @@
+.root {
+    -fx-background-color: #f9f6f2;
+    -fx-font-family: "Courier New", monospace;
+}
+
+.button {
+    -fx-background-color: #ffdd57;
+    -fx-text-fill: black;
+    -fx-font-weight: bold;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 8px 16px;
+}
+
+.button:hover {
+    -fx-background-color: #ffafcc;
+    -fx-cursor: hand;
+}
+
+.label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: black;
+}
+
+.text-field, .text-area {
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-padding: 5px;
+}
+
+.tab-pane {
+    -fx-border-color: black;
+    -fx-border-width: 3px;
+    -fx-background-color: #caffbf;
+}
+
+.tab {
+    -fx-background-color: #ffd6a5;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-font-weight: bold;
+}

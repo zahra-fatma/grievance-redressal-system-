@@ -1,0 +1,61 @@
+/* login.css - Neo-Brutalist Style */
+
+.root {
+    -fx-background-color: #f4f4f4; /* Light gray background */
+    -fx-font-family: "Inter", "Arial", sans-serif;
+}
+
+/* Main container (VBox) */
+.vbox {
+    -fx-background-color: #ffffff; /* Card white background */
+    -fx-border-color: #000000;     /* Bold black border */
+    -fx-border-width: 3px;
+    -fx-padding: 30px;
+    -fx-spacing: 15px;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0.3, 5, 5);
+}
+
+/* Labels */
+.label {
+    -fx-text-fill: #000000;
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-underline: false;
+}
+
+/* Text fields */
+.text-field, .password-field {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+
+}
+
+/* Hover effect for input fields */
+.text-field:hover, .password-field:hover {
+    -fx-background-color: #f0f0f0;
+}
+
+/* Buttons */
+.button {
+    -fx-background-color: #ffcc00;
+    -fx-border-color: #000000;
+    -fx-border-width: 2px;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 3, 0.3, 2, 2);
+}
+
+/* Hover and Pressed State */
+.button:hover {
+    -fx-background-color: #ffdb4d;
+}
+
+.button:pressed {
+    -fx-background-color: #e6b800;
+}

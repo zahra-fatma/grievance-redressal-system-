@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.CitizenController"
+            prefWidth="1600" prefHeight="900"
+            stylesheets="@neo-brutal.css"
+            styleClass="root">
+
+    <!-- Sidebar -->
+    <left>
+        <VBox spacing="20" prefWidth="220" styleClass="sidebar">
+            <Label text="Citizen Portal" styleClass="sidebar-title"/>
+            <Button fx:id="btnFileComplaint" text="File Complaint" styleClass="sidebar-btn" onAction="#showFileComplaint"/>
+            <Button fx:id="btnMyComplaints" text="My Complaints" styleClass="sidebar-btn" onAction="#showMyComplaints"/>
+            <Button fx:id="btnLedger" text="Ledger" styleClass="sidebar-btn" onAction="#showLedger"/>
+            <Button fx:id="btnAnnouncements" text="Announcements" styleClass="sidebar-btn" onAction="#showAnnouncements"/>
+            <Button fx:id="btnDashboard" text="Dashboard" styleClass="sidebar-btn" onAction="#showDashboard"/>
+            <Button fx:id="btnProfile" text="Profile" styleClass="sidebar-btn" onAction="#showProfile"/>
+        </VBox>
+    </left>
+
+    <!-- Main content (Tabs inside brutalist panels) -->
+    <center>
+        <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" styleClass="tabpane">
+
+            <!-- File Complaint -->
+            <Tab fx:id="tabFileComplaint" text="✍ File Complaint">
+                <VBox alignment="CENTER" spacing="20" styleClass="panel">
+                    <Label text="File a New Complaint" styleClass="heading"/>
+
+                    <!-- Title -->
+                    <TextField fx:id="complaintTitleField" promptText="Complaint Title" styleClass="input"/>
+
+                    <!-- Details -->
+                    <TextArea fx:id="complaintDetailsArea" promptText="Complaint Details" prefHeight="200" styleClass="textarea"/>
+
+                    <!-- 🆕 Category Dropdown -->
+                    <ComboBox fx:id="categoryCombo" promptText="Select Category" styleClass="input" prefWidth="400"/>
+
+                    <!-- File Upload -->
+                    <HBox spacing="10" alignment="CENTER">
+                        <Button fx:id="attachFileButton" text="Attach File" onAction="#handleAttachFile" styleClass="button"/>
+                        <Label fx:id="attachedFileLabel" text="No file selected" />
+                    </HBox>
+
+                    <!-- Submit Button -->
+                    <Button fx:id="submitComplaintButton" text="Submit Complaint" onAction="#handleSubmitComplaint" styleClass="button"/>
+                </VBox>
+            </Tab>
+
+            <!-- My Complaints -->
+            <Tab fx:id="tabMyComplaints" text="📂 My Complaints">
+                <VBox spacing="20" alignment="CENTER" styleClass="panel">
+                    <Label text="My Complaints" styleClass="heading"/>
+                    <TableView fx:id="complaintsTable" prefWidth="1100" prefHeight="500" styleClass="table">
+                        <columns>
+                            <TableColumn fx:id="colId" text="ID" prefWidth="100">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="id"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="colTitle" text="Title" prefWidth="200">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="title"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="colStatus" text="Status" prefWidth="150">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="status"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <TableColumn fx:id="colDate" text="Date" prefWidth="200">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="date"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                            <!-- ✅ Auto Comment Column -->
+                            <TableColumn fx:id="colAutoComment" text="Auto Comment" prefWidth="400">
+                                <cellValueFactory>
+                                    <PropertyValueFactory property="autoComment"/>
+                                </cellValueFactory>
+                            </TableColumn>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </Tab>
+
+            <!-- Ledger -->
+            <Tab fx:id="tabLedger" text="📜 Ledger">
+                <VBox spacing="20" alignment="CENTER" styleClass="panel">
+                    <Label text="Immutable Complaint Ledger" styleClass="heading"/>
+                    <TextArea fx:id="ledgerView" prefWidth="900" prefHeight="600" styleClass="textarea"/>
+                </VBox>
+            </Tab>
+
+            <!-- Announcements -->
+            <Tab fx:id="tabAnnouncements" text="📢 Announcements">
+                <VBox spacing="20" alignment="CENTER" styleClass="panel">
+                    <Label text="Announcements" styleClass="heading"/>
+                    <ListView fx:id="announcementsList" prefWidth="900" prefHeight="600" />
+                </VBox>
+            </Tab>
+
+            <!-- 📊 Dashboard -->
+            <Tab fx:id="tabDashboard" text="📊 Dashboard">
+                <VBox spacing="20" alignment="CENTER" styleClass="panel">
+                    <Label text="Complaint Tracking Dashboard" styleClass="heading"/>
+                    <PieChart fx:id="complaintChart" prefWidth="600" prefHeight="400"/>
+                </VBox>
+            </Tab>
+
+            <!-- 👤 Profile -->
+            <Tab fx:id="tabProfile" text="👤 Profile">
+                <VBox spacing="20" alignment="CENTER" styleClass="panel">
+                    <Label text="My Profile" styleClass="heading"/>
+
+                    <!-- Profile Picture -->
+                    <ImageView fx:id="profileImage" fitWidth="120" fitHeight="120" preserveRatio="true"/>
+                    <Button fx:id="uploadProfilePicButton" text="Upload Profile Picture" onAction="#handleUploadProfilePicture" styleClass="button"/>
+
+                    <!-- Editable Fields -->
+                    <TextField fx:id="nameField" promptText="Full Name" styleClass="input" prefWidth="400"/>
+                    <TextField fx:id="emailField" promptText="Email Address" styleClass="input" prefWidth="400"/>
+                    <TextField fx:id="phoneField" promptText="Phone Number" styleClass="input" prefWidth="400"/>
+                    <PasswordField fx:id="passwordField" promptText="New Password" styleClass="input" prefWidth="400"/>
+
+                    <!-- Save Button -->
+                    <Button fx:id="saveProfileButton" text="Save Changes" onAction="#handleSaveProfile" styleClass="button"/>
+                </VBox>
+            </Tab>
+
+        </TabPane>
+    </center>
+
+</BorderPane>
